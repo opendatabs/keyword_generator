@@ -1,0 +1,10 @@
+streamlit
+openai
+tenacity
+beautifulsoup4
+keybert
+llama-index
+llama-index-llms-openai
+llama-index-extractors-marvin
+llama-index-extractors-entity
+marvin
