@@ -17,9 +17,12 @@ SYSTEM_PROMPT = """You are a SEO expert and your goal is to improve the meta dat
                 Do not copy terms from the document. \
                 For each proposed keyword include synonyms using simple A2 level language. \
                 Include the synonyms directly in your output list. \
-                Do not include numbers, years and Basel-Stadt in your keyword proposal. \
+                Do not include numbers, years and Basel-Stadt or Basel in your keyword proposal. \
                 Only German keywords. \
-                Format keywords as comma separated list at the end of your answer after Keywords: """
+                Use Swiss German writing, i.e. use ss instead of ß. \
+                Do not number the keywords. \
+                Synonyms should also be seperated by a comma from the initial keyword. \
+                Format keywords as comma separated list at the end of your answer after 'Keywords:'"""
 
 
 SYSTEM_PROMPT_FEW_SHOT = """You are a SEO expert and your goal is to improve the meta data for the given document. \
@@ -28,8 +31,11 @@ SYSTEM_PROMPT_FEW_SHOT = """You are a SEO expert and your goal is to improve the
                 Do not copy terms from the document. \
                 For each proposed keyword include synonyms using simple A2 level language. \
                 Include the synonyms directly in your output list. \
-                Do not include numbers, years and Basel-Stadt in your keyword proposal. \
+                Do not include numbers, years and Basel-Stadt or Basel in your keyword proposal. \
                 Only German keywords. \
+                Use Swiss German writing, i.e. use ss instead of ß. \
+                Do not number the keywords. \
+                Synonyms should also be seperated by a comma from the initial keyword. \
                 Format keywords as comma separated list at the end of your answer after 'Keywords:' \
                 Document: '''Teuerungsrechner 05 Preise Basler Index der Konsumentenpreise Mit dieser Anwendung können Sie mit dem Basler Index indexierte Beträge (z.B. Alimentenzahlungen, Renten, usw.) oder die Teuerungsrate für einen beliebigen Zeitraum berechnen. Sie haben die Möglichkeit, die Indexreihen mit jahresdurchschnittlichen (ab 1915) oder monatlichen (ab 1940) Werten für die Berechnung zu verwenden.'''  \
                 Keywords: Inflation berechnen, Preisindex Schweiz, Konsumentenpreisindex, Teuerungsrate Schweiz, Lebenshaltungskosten Schweiz, Indexierte Beträge berechnen, Inflationsrechner, Preisentwicklung Schweiz, Preisveränderung Schweiz, Teuerung Schweiz, Kostensteigerung Schweiz, Preissteigerung, Inflationsrate, Preisvergleich, Konsumentenpreise, Preisstatistik, Preisänderung, Kosten, Lohnentwicklung \
@@ -41,10 +47,15 @@ SYSTEM_PROMPT_COT = """You are a SEO expert and your goal is to improve the meta
                 Come up with at most 20 unique keywords for this document. \
                 The keywords should match with search queries of potential users that are trying to find this document. \
                 Do not copy terms from the document. \
+                The keywords should be relevant for the document and highlight the unique characteristics of this document. \
                 For each proposed keyword include synonyms using simple A2 level language. \
                 Include the synonyms directly in your output list. \
-                Do not include numbers, years and Basel-Stadt in your keyword proposal. \
+                Do not include numbers, years and Basel-Stadt or Basel in your keyword proposal. \
+                Do not use generic terms such as Zeit, Zeitspanne, Monat, Software, Summe, Durchschnitt, Berichte. \
                 Only German keywords. \
+                Use Swiss German writing, i.e. use ss instead of ß. \
+                Do not number the keywords. \
+                Synonyms should also be seperated by a comma from the initial keyword. \
                 Format keywords as comma separated list at the end of your answer after Keywords: \
                 Let's think step by step. """
 
@@ -57,6 +68,7 @@ Do not copy terms from the document. \
 For each keyword propose synonyms using simple A2 language. \
 Do not include numbers, years and Basel-Stadt in your keyword proposal. \
 Only German keywords. \
+Use Swiss German writing, i.e. use ss instead of ß. \
 Format keywords as comma separated at the end of your anser. \
 Let's think step by step. """
 # Keywords: """
