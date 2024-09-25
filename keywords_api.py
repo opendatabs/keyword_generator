@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from flask import Flask, request, jsonify
 from extract_keywords import extract_keywords, extract_keywords_cot, extract_few_shot_keywords
 
@@ -19,4 +22,4 @@ def extract_keywords_api():
     return jsonify({'keywords': unique_keywords})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False) 
