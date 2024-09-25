@@ -1,0 +1,9 @@
+version: '3.9'  # Specify Docker Compose version
+
+services:
+  keyword_extractor:
+    build: .  # Build the image from the current directory's Dockerfile
+    ports:
+      - "5000:5000"  # Expose port 5000 from the container to the host
+    volumes:
+      - .:/app  # Mount the current directory into the container

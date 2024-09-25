@@ -5,7 +5,7 @@ import httpx
 MAX_TOKENS = 4096
 
 proxy_url = os.environ.get("PROXY_URL")
-model = "gpt-4o"  # "gpt-4o-mini"
+model = "gpt-4o-mini"
 llm = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY"),
     http_client=httpx.Client(proxy=proxy_url),
@@ -59,21 +59,10 @@ SYSTEM_PROMPT_COT = """You are a SEO expert and your goal is to improve the meta
                 Format keywords as comma separated list at the end of your answer after Keywords: \
                 Let's think step by step. """
 
-KEYWORD_EXTRACT_TEMPLATE = """\
-<document> {context_str} </document>. \
-You are a SEO expert and your goal is to improve the meta data for the given document. \
-Come up with at most {keywords} unique keywords for this document. \
-The keywords should match with search queries of potential users that are trying to find this document. \
-Do not copy terms from the document. \
-For each keyword propose synonyms using simple A2 language. \
-Do not include numbers, years and Basel-Stadt in your keyword proposal. \
-Only German keywords. \
-Use Swiss German writing, i.e. use ss instead of ß. \
-Format keywords as comma separated at the end of your anser. \
-Let's think step by step. """
-# Keywords: """
-
 def extract_keywords(text: str):
+    """
+    Given a text, use GPT-4o to create a comma separated list of keywords.
+    """
     response = llm.chat.completions.create(
         model=model,
         messages=[
@@ -96,6 +85,9 @@ def extract_keywords(text: str):
     return message, keywords
 
 def extract_few_shot_keywords(text: str):
+    """
+    Given a text, use GPT-4o to create a comma separated list of keywords.
+    """
     response = llm.chat.completions.create(
         model=model,
         messages=[
@@ -119,6 +111,9 @@ def extract_few_shot_keywords(text: str):
     return message, keywords
 
 def extract_keywords_cot(text: str):
+    """
+    Given a text, use GPT-4o to create a comma separated list of keywords.
+    """
     response = llm.chat.completions.create(
         model=model,
         messages=[
